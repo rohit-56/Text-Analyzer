@@ -4,14 +4,15 @@ export default function TextForm() {
 
   const handleOnClick= ()=>{
     setText(text.toUpperCase());
-    console.log("Rohit");
   }
 
   const handleOnChange= (event)=>{
-    console.log("on change");
     setText(event.target.value);
   }
-
+  
+  const clearAll=()=>{
+    setText("");
+  }
 
 
   const [text, setText] = useState('Enter Text Here');
@@ -26,6 +27,7 @@ export default function TextForm() {
            <textarea className="form-control"  value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
        </div>
         <button className="btn btn-primary" onClick={handleOnClick}>Convert your text into UpperCase</button>
+        <button className="btn btn-primary" onClick={clearAll}>Clear Text</button>
     </div>
     </>
   )
