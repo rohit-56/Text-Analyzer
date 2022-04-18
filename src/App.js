@@ -38,7 +38,7 @@ function App() {
             <About />
           </Route>
           <Route path="/">
-           <TextForm/>
+           <TextForm mode={mode}/>
           </Route>
           
         </Switch>
