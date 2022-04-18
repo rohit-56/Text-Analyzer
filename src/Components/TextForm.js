@@ -27,7 +27,7 @@ export default function TextForm() {
            <textarea className="form-control"  value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
        </div>
         <button className="btn btn-primary" onClick={handleOnClick}>Convert your text into UpperCase</button>
-        <button className="btn btn-primary" onClick={clearAll}>Clear Text</button>
+        <button className="btn btn-primary mx-1" onClick={clearAll}>Clear Text</button>
     </div>
     </>
   )
