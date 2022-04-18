@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function TextForm() {
+export default function TextForm(props) {
 
   const handleOnClick= ()=>{
     setText(text.toUpperCase());
@@ -20,7 +20,7 @@ export default function TextForm() {
   
   return (
     <>
-    <div className='container'>
+    <div className="container my-3" style={{color : props.textcolor}}>
     
        <h1>Enter your text</h1>
        <div className="mb-3">
