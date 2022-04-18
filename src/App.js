@@ -1,8 +1,14 @@
 import './App.css';
 import TextForm from './Components/TextForm';
 import NavBar from './Components/NavBar';
-// import About from './Components/About';
+import About from './Components/About';
 import React,{useState} from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
 
@@ -22,9 +28,22 @@ function App() {
 
   return (
     <>
+    <Router>
+      <div>
    <NavBar title="TextUtils" mode={mode}  toggleMode={toggleMode} textcolor={textcolor} />
-    <TextForm/>
-    {/* <About /> */}
+    
+    
+    <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+           <TextForm/>
+          </Route>
+          
+        </Switch>
+        </div>
+        </Router>
     </>
     
   );
