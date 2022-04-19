@@ -29,6 +29,10 @@ export default function TextForm(props) {
         <button className="btn btn-primary" onClick={handleOnClick}>Convert your text into UpperCase</button>
         <button className="btn btn-primary mx-1" onClick={clearAll}>Clear Text</button>
     </div>
+    <div className='container'> 
+      <h1>Preview</h1>
+      <p>{text}</p>
+    </div>
     </>
   )
 }
