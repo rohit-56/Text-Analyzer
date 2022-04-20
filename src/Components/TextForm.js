@@ -14,8 +14,11 @@ export default function TextForm(props) {
     setText("");
   }
 
-
+  const countWords=()=>{
+    setOutputText(`${text.split(" ").length}`);
+  }
   const [text, setText] = useState('Enter Text Here');
+  const [outputText,setOutputText]=useState("");
 
   
   return (
@@ -28,10 +31,13 @@ export default function TextForm(props) {
        </div>
         <button className="btn btn-primary" onClick={handleOnClick}>Convert your text into UpperCase</button>
         <button className="btn btn-primary mx-1" onClick={clearAll}>Clear Text</button>
+        <button className="btn btn-primary mx-1" onClick={countWords}>Count Words</button>
     </div>
     <div className='container'> 
-      <h1>Preview</h1>
-      <p>{text}</p>
+      <h1>Output</h1>
+      <div className="mb-3">
+          <textarea className="form-control"  value={outputText} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+      </div>
     </div>
     </>
   )
