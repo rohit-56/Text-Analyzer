@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 export default function TextForm(props) {
 
   const handleOnClick= ()=>{
-    setText(text.toUpperCase());
+    setOutputText(text.toUpperCase());
   }
 
   const handleOnChange= (event)=>{
@@ -17,23 +17,28 @@ export default function TextForm(props) {
   const countWords=()=>{
     setOutputText(`${text.split(" ").length}`);
   }
+
+  const convertLowerCase=()=>{
+    setOutputText(text.toLowerCase());
+  }
   const [text, setText] = useState('Enter Text Here');
   const [outputText,setOutputText]=useState("");
 
   
   return (
     <>
-    <div className="container my-3" style={{color : props.textcolor}}>
+    <div className="container my-3" style={{color : props.textcolor, border:props.textcolor}}>
     
        <h1>Enter your text</h1>
        <div className="mb-3">
            <textarea className="form-control"  value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
        </div>
         <button className="btn btn-primary" onClick={handleOnClick}>Convert your text into UpperCase</button>
+        <button className="btn btn-primary mx-1" onClick={convertLowerCase}>Convert your text into LowerCase</button>
         <button className="btn btn-primary mx-1" onClick={clearAll}>Clear Text</button>
         <button className="btn btn-primary mx-1" onClick={countWords}>Count Words</button>
     </div>
-    <div className='container'> 
+    <div className='container' style={{color:props.textcolor}}> 
       <h1>Output</h1>
       <div className="mb-3">
           <textarea className="form-control"  value={outputText} onChange={handleOnChange} id="myBox" rows="8"></textarea>
