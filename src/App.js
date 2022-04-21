@@ -17,13 +17,16 @@ function App() {
 
   const toggleMode = ()=>{
     if(mode === 'light'){
-     setMode('dark');
+     setMode('black');
      setTextcolor('white');
+     document.body.style.backgroundColor="black";
     }
     else{
       setMode('light');
       setTextcolor('black');
+      document.body.style.backgroundColor="white";
     }
+
   }
 
   return (
@@ -38,7 +41,7 @@ function App() {
             <About />
           </Route>
           <Route path="/">
-           <TextForm mode={mode}/>
+           <TextForm mode={mode}  textcolor={textcolor}/>
           </Route>
           
         </Switch>
