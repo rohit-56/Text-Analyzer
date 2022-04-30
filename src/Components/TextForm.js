@@ -30,6 +30,9 @@ export default function TextForm(props) {
     // this will replace all alphabets only digist will left and it will return count of digits in text string
     setOutputText(text.replace(/\D/g, '').length);
   }
+  const countSpecialCharacters=()=>{
+    setOutputText(text.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '').length);
+  }
   const [text, setText] = useState('Enter Text Here');
   const [outputText,setOutputText]=useState("");
 
@@ -48,7 +51,7 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={countWords}>Count Words</button>
         <button className="btn btn-primary mx-1" onClick={countCharacter}>Count Characters</button>
         <button className="btn btn-primary mx-1" onClick={countDigits}>Count Digits</button>
-        <button className="btn btn-primary mx-1" onClick={countWords}>Count Special Characters</button>
+        <button className="btn btn-primary mx-1" onClick={countSpecialCharacters}>Count Special Characters</button>
     </div>
     <div className='container' style={{color:props.textcolor}}> 
       <h1>Output</h1>
