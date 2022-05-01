@@ -27,11 +27,12 @@ export default function TextForm(props) {
   }
 
   const countDigits=()=>{
-    // this will replace all alphabets only digist will left and it will return count of digits in text string
+    // regular expression to replace all the non-digit characters
     setOutputText(text.replace(/\D/g, '').length);
   }
   const countSpecialCharacters=()=>{
-    setOutputText(text.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '').length);
+    // regular expression to replace all characters except special characters
+    setOutputText(text.replace(/[A-Z]|[a-z]|[0-9]|\s/g, '').length);
   }
   const [text, setText] = useState('Enter Text Here');
   const [outputText,setOutputText]=useState("");
