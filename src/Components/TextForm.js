@@ -58,6 +58,7 @@ export default function TextForm(props) {
       <h1>Output</h1>
       <div className="mb-3">
           <textarea className="form-control"  value={outputText} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+          <button className="btn btn-primary my-1" onClick={countSpecialCharacters}>Display Special Characters</button>
       </div>
     </div>
     </>
