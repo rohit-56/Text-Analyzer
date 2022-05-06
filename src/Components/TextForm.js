@@ -1,66 +1,55 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
+import Buttons from "./Buttons";
+import "../App.css";
 
 export default function TextForm(props) {
-
-  const handleOnClick= ()=>{
-    setOutputText(text.toUpperCase());
-  }
-
-  const handleOnChange= (event)=>{
+  const handleOnChange = (event) => {
     setText(event.target.value);
-  }
-  
-  const clearAll=()=>{
-    setText("");
-  }
+  };
+  const [text, setText] = useState("Enter Text Here");
+  const [outputText, setOutputText] = useState("");
 
-  const countWords=()=>{
-    setOutputText(`${text.split(" ").length}`);
-  }
-
-  const convertLowerCase=()=>{
-    setOutputText(text.toLowerCase());
-  }
-
-  const countCharacter=()=>{
-    setOutputText(`${text.length}`-`${text.split(" ").length}`+1);
-  }
-
-  const countDigits=()=>{
-    // regular expression to replace all the non-digit characters
-    setOutputText(text.replace(/\D/g, '').length);
-  }
-  const countSpecialCharacters=()=>{
-    // regular expression to replace all characters except special characters
-    setOutputText(text.replace(/[A-Z]|[a-z]|[0-9]|\s/g, '').length);
-  }
-  const [text, setText] = useState('Enter Text Here');
-  const [outputText,setOutputText]=useState("");
-
-  
   return (
     <>
-    <div className="container my-3" style={{color : props.textcolor}}>
-    
-       <h1>Enter your text</h1>
-       <div className="mb-3">
-           <textarea className="form-control"  value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
-       </div>
-        <button className="btn btn-primary" onClick={handleOnClick}>Convert your text into UpperCase</button>
-        <button className="btn btn-primary mx-1" onClick={convertLowerCase}>Convert your text into LowerCase</button>
-        <button className="btn btn-primary mx-1" onClick={clearAll}>Clear Text</button>
-        <button className="btn btn-primary mx-1" onClick={countWords}>Count Words</button>
-        <button className="btn btn-primary mx-1" onClick={countCharacter}>Count Characters</button>
-        <button className="btn btn-primary mx-1" onClick={countDigits}>Count Digits</button>
-        <button className="btn btn-primary mx-1" onClick={countSpecialCharacters}>Count Special Characters</button>
-    </div>
-    <div className='container' style={{color:props.textcolor}}> 
-      <h1>Output</h1>
-      <div className="mb-3">
-          <textarea className="form-control"  value={outputText} onChange={handleOnChange} id="myBox" rows="8"></textarea>
-          <button className="btn btn-primary my-1" onClick={countSpecialCharacters}>Display Special Characters</button>
+      <div className="my-3">
+        <div
+          className="float-child"
+          style={{ width: "30%", border: " 2px solid black" }}
+        >
+          <Buttons
+            text={text}
+            setText={setText}
+            outputText={outputText}
+            setOutputText={setOutputText}
+          />
+        </div>
+        <div
+          className="float-child"
+          style={{ color: props.textcolor, width: "70%" }}
+        >
+          <h1>Enter your text</h1>
+          <div className="mb-3">
+            <textarea
+              className="form-control"
+              value={text}
+              onChange={handleOnChange}
+              id="myBox"
+              rows="8"
+            ></textarea>
+          </div>
+
+          <h1>Output</h1>
+          <div className="mb-3">
+            <textarea
+              className="form-control"
+              value={outputText}
+              onChange={handleOnChange}
+              id="myBox"
+              rows="8"
+            ></textarea>
+          </div>
+        </div>
       </div>
-    </div>
     </>
-  )
+  );
 }
